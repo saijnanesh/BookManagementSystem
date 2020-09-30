@@ -1,0 +1,37 @@
+<div class="container">
+  <form name="myForm" #myForm="ngForm" (ngSubmit)="updateProduct()" class="form-horizontal">
+
+      <div class="form-group">
+        <label for="orderId" class="control-label col-sm-2">order Id:</label>
+        <div class="col-sm-10">
+            <input type="number" #orderId="ngModel" name="orderId" [(ngModel)]="orderDto.orderId" required
+                class="form-control" readonly />
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="status" class="control-label col-sm-2">Product Status:</label>
+      <div class="col-sm-10">
+        <select class="custom-select" #status="ngModel" name="status"
+          [(ngModel)]="orderDto.status">{{orderDto.status}}
+          <option value="Pending" selected>Pending</option>
+          <option value="Dispatched">Dispatched</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Picked">Picked</option>
+          <option value="Destination Reached">Destination Reached</option>
+        </select>
+      </div>
+    </div>
+
+
+    
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" [disabled]="myForm.form.invalid" class="btn btn-success" type="submit">
+          Update</button>
+      </div>
+    </div>
+  </form>
+</div>

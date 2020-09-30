@@ -1,0 +1,39 @@
+<div>
+    <button class = "btn-primary"(click) = "getAllOrders()"> getlist </button>
+</div>
+<div class="containerfluid">
+  <table class="table table-hover">
+      <thead>
+          <tr>
+              <th id="orderId">Order Id</th>
+              <th id="bookCopies">Book Copies</th>
+              <th id="orderedBy">Ordered By</th>
+              <th id="paymentMethod">Payment Method</th>
+              <th id="status">Status</th>
+              <th id="total">Total</th>
+              <th id="orderDate">Order Date</th>
+              <th id="expectedDateOfDelivery">Expected Date Of Delivery</th>
+              
+              </tr>
+      </thead>
+
+      <tbody>
+          <tr *ngFor="let item of orderDto">
+              <td>{{item.orderId}}</td>
+              <td>{{item.bookCopies}}</td>
+              <td>{{item.orderedBy}}</td>
+              <td>{{item.paymentMethod}}</td>
+              <td>{{item.status}}</td>
+              <td>{{item.total}}</td>
+              <td>{{item.orderDate}}</td>
+              <td>{{item.expectedDateOfDelivery}}</td>
+             
+              <td><button type="button" (click)="updateOrder(item.orderId)" class="btn btn-primary"
+                      mat-raised-button>Update Order</button></td>
+              <td><button type="button" (click)="deleteOrder(item.orderId)"
+                      class="btn btn-danger">Cancel order</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
